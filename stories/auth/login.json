@@ -1,0 +1,27 @@
+{
+  "title": "Connexion utilisateur avec email et mot de passe",
+  "priority": "P1",
+  "description": "En tant qu'utilisateur enregistré, je veux me connecter avec mon email et mon mot de passe pour accéder à mon compte et utiliser l'application.",
+  "url": "/login",
+  "acceptanceCriteria": [
+    "L'utilisateur peut se connecter avec un email valide et le bon mot de passe",
+    "L'utilisateur est redirigé vers son tableau de bord après connexion réussie",
+    "Son prénom est affiché dans l'en-tête après connexion",
+    "Un message d'erreur s'affiche si le mot de passe est incorrect",
+    "Un message d'erreur s'affiche si l'email n'existe pas dans le système",
+    "Le formulaire affiche une erreur si l'email n'est pas au bon format",
+    "Le bouton de connexion est désactivé si les champs sont vides",
+    "Un utilisateur non connecté qui accède à /dashboard est redirigé vers /login",
+    "Le mot de passe est masqué par défaut dans le champ",
+    "Le compte est verrouillé après 5 tentatives de connexion échouées"
+  ],
+  "tags": ["smoke", "regression", "security"],
+  "selectors": {
+    "emailInput":    "[data-testid='email-input']",
+    "passwordInput": "[data-testid='password-input']",
+    "submitButton":  "[data-testid='submit-btn']",
+    "errorMessage":  "[data-testid='error-message']",
+    "emailError":    "[data-testid='email-error']",
+    "headerUsername":"[data-testid='header-username']"
+  }
+}

@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "qa-ai-powered-framework"
+version = "1.0.0"
+description = "AI-powered QA framework — generates Playwright tests from User Stories using Claude API"
+authors = [{ name = "Michel Ange KOUAME", email = "michelangeeliek@gmail.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "playwright>=1.42.0",
+    "anthropic>=0.20.0",
+    "pytest>=8.0.0",
+    "pytest-playwright>=0.4.4",
+    "pytest-asyncio>=0.23.0",
+    "pytest-xdist>=3.5.0",       # parallel test execution
+    "pytest-html>=4.1.0",        # HTML report
+    "pytest-json-report>=1.5.0", # JSON report (for AI analysis)
+    "allure-pytest>=2.13.0",     # Allure reports
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.6.0",           # User Story validation
+    "rich>=13.7.0",              # Beautiful CLI output
+    "typer>=0.9.0",              # CLI framework
+    "httpx>=0.27.0",             # Async HTTP client for API tests
+    "faker>=24.0.0",             # Test data generation
+]
+
+[project.scripts]
+generate = "scripts.generate_tests:app"
+analyze  = "scripts.analyze_failures:app"
+
+[tool.pytest.ini_options]
+testpaths    = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = """
+    -v
+    --tb=short
+    --json-report
+    --json-report-file=reports/results.json
+    --html=reports/report.html
+    --self-contained-html
+"""
+markers = [
+    "smoke: fast smoke tests — run on every push",
+    "regression: full regression suite",
+    "api: pure API tests (no browser)",
+    "security: security-focused tests",
+    "performance: performance assertions",
+    "p1: critical path tests",
+    "p2: high priority tests",
+    "p3: medium priority tests",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true

@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+.pytest_cache/
+reports/
+allure-results/
+allure-report/
+test-results/
+playwright-report/
+.mypy_cache/
+.ruff_cache/
+dist/
+*.egg-info/
+
+# AI generated — review before committing
+tests/generated/
+
+# OS
+.DS_Store
+Thumbs.db
