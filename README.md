@@ -324,7 +324,6 @@ Publish HTML Report to GitHub Pages (main branch)
 Quality Engineer · ISTQB Foundation & Agile Tester · Île-de-France
 
 📧 michelangeeliek@gmail.com  
-📱 +33 6 58 83 05 29  
 🌐 [micheLange-kouame.github.io](https://micheLange-kouame.github.io)  
 💼 [LinkedIn](https://linkedin.com/in/michel-ange-elie-kouame-8255a3b1)
 
